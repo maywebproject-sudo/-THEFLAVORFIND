@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Delícias - Receitas</title>
+</head>
+<body >
+
+
+
+
+<header class="header">
+    <div class="brand">
+
+        <div class="brand-icon">
+            🍳
+        </div>
+
+        <h1>
+            <span class="orange">THE</span><span class="white">FLAVOR</span><span class="orange">FIND</span>
+        </h1>
+
+    </div>
+</header>
+
+
+
+
+   <main class="container">
+    <h1>Buscador de receitas</h1>
+    <form class="search-form">
+       <input type="text" placeholder="digite o ingrediente" class="search-input">
+        <button class="search-button" type="submit"> Buscar</button>
+    </form>
+    <div class="loading"></div>
+    <div class="recipe-list"></div>
+    <div class="recipe-details"></div>
+   </main> 
+
+   <button class="back-home" onclick="goHome()">
+    ⬅ Voltar ao início
+</button>
+
+
+<section class="featured-section">
+
+    <h2>Discover Our Recipes</h2>
+
+    <p>Find something delicious to cook today!</p>
+
+    <div id="featured-recipes" class="featured-grid">
+        <p>Loading recipes...</p>
+    </div>
+
+</section>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</body>
+<script src="scripts.js"></script>
+
+</html>
