@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Imagem ilustrativa indisponível">
+  <rect width="1200" height="800" fill="#151515"/>
+  <circle cx="600" cy="400" r="150" fill="none" stroke="#FF6B1A" stroke-width="6" opacity="0.6"/>
+  <path d="M540 420h120a10 10 0 0 1 10 10v20a55 55 0 0 1-55 55h-30a55 55 0 0 1-55-55v-30Z" fill="#FF6B1A" opacity="0.85"/>
+  <path d="M670 435h14a14 14 0 0 1 0 28h-14" stroke="#FF6B1A" stroke-width="10" fill="none"/>
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="26" fill="#8a8a8a" text-anchor="middle">Imagem ilustrativa indisponível</text>
+</svg>

@@ -1,0 +1,3 @@
+/api/*  /.netlify/functions/recipes/:splat  200
+/receitas  /receitas/  301
+/categorias  /categorias/  301

@@ -1,0 +1,12 @@
+THEFLAVORFIND 2.1 — revisão para AdSense
+
+1. Faça uma cópia de segurança do site anterior.
+2. Extraia o ZIP e coloque os ficheiros na raiz do repositório GitHub existente, ligado à Netlify. Não envie apenas o ZIP nem crie outro site.
+3. Confirme o deploy na Netlify. O netlify.toml contém as instruções de build e Functions.
+4. Teste a pesquisa, receitas, categorias, navegação móvel e /api/health no site publicado.
+5. Confirme com o adulto titular do AdSense o identificador em ads.txt e nas meta tags. Antes de ativar publicidade, configure a CMP certificada pela Google quando aplicável (Privacidade e mensagens no AdSense).
+6. Reveja e teste as receitas na cozinha; confirme alergénios, conservação e segurança alimentar. As imagens continuam identificadas como geradas por IA.
+7. Só depois solicite revisão ao AdSense. Não existe garantia de aprovação.
+
+Alterações: pesquisa com proteção contra respostas fora de ordem, consulta de novas receitas por página dinâmica, service worker, conteúdo legível sem JavaScript, remoção de Google Fonts externos, validação adicional da API, instruções de publicação corrigidas.
+Testes locais: build concluído; sintaxe JS verificada; referências locais HTML sem ficheiros em falta; quatro endpoints GET devolveram 200 usando dados base. Netlify Blobs, deploy real, consentimento publicitário e testes em navegador não verificados. A página dinâmica não é indexada; para SEO, inclua novas receitas no catálogo estático e faça novo build. Não foram recuperadas contas Firebase ou favoritos.

@@ -1,67 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheFlavorFind — Receitas originais em português de Portugal</title>
+  <meta name="description" content="Receitas originais em português de Portugal, com ingredientes reais, tempos honestos e instruções passo a passo. Pequeno-almoço, massas, carne, peixe, vegetarianas e sobremesas.">
+  <link rel="canonical" href="https://theflavorfind.netlify.app/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="google-adsense-account" content="ca-pub-3918165477241157">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:site_name" content="TheFlavorFind">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TheFlavorFind — Receitas originais em português de Portugal">
+  <meta property="og:description" content="Receitas originais em português de Portugal, com ingredientes reais, tempos honestos e instruções passo a passo. Pequeno-almoço, massas, carne, peixe, vegetarianas e sobremesas.">
+  <meta property="og:url" content="https://theflavorfind.netlify.app/">
+  <meta property="og:image" content="https://theflavorfind.netlify.app/images/panquecas-de-buttermilk-com-mel-e-nozes.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TheFlavorFind — Receitas originais em português de Portugal">
+  <meta name="twitter:description" content="Receitas originais em português de Portugal, com ingredientes reais, tempos honestos e instruções passo a passo. Pequeno-almoço, massas, carne, peixe, vegetarianas e sobremesas.">
+  <meta name="twitter:image" content="https://theflavorfind.netlify.app/images/panquecas-de-buttermilk-com-mel-e-nozes.webp">
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
 
-    <meta name="google-adsense-account" content="ca-pub-3918165477241157">
 
-    <link rel="stylesheet" href="style.css">
-    <title>The Flavor Find - Recipes</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/scripts.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TheFlavorFind","url":"https://theflavorfind.netlify.app/","inLanguage":"pt-PT","description":"Receitas originais em português de Portugal, com ingredientes, tempos, dificuldade e instruções detalhadas.","potentialAction":{"@type":"SearchAction","target":"https://theflavorfind.netlify.app/receitas/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 </head>
-<body >
+<body>
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
-
-
-
-<header class="header">
-    <div class="brand">
-
-        <div class="brand-icon">
-            🍳
-        </div>
-
-        <h1>
-            <span class="orange">THE</span><span class="white">FLAVOR</span><span class="orange">FIND</span>
-        </h1>
-
-    </div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="TheFlavorFind — início">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="#FF6B1A"/>
+    <path d="M13 22h18a2 2 0 0 1 2 2v3a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-5Z" fill="#0A0A0A"/>
+    <path d="M33 24h3a2 2 0 0 1 0 4h-3" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M19 17c0-2 2-2 2-4M25 17c0-2 2-2 2-4" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+      <span class="brand-word"><span class="the">THE</span><span class="flavor">FLAVOR</span><span class="find">FIND</span></span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="site-nav" id="menu-principal" data-nav aria-label="Navegação principal">
+      <a href="/" aria-current="page">Início</a>
+      <a href="/receitas/">Receitas</a>
+      <a href="/categorias/">Categorias</a>
+      <a href="/sobre.html">Sobre</a>
+      <a class="header-cta" href="/receitas/">Explorar receitas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </nav>
+  </div>
 </header>
+<main id="conteudo">
 
-
-
-
-   <main class="container">
-    <h1>Buscador de receitas</h1>
-    <form class="search-form">
-       <input type="text" placeholder="digite o ingrediente" class="search-input">
-        <button class="search-button" type="submit"> Buscar</button>
-    </form>
-    <div class="loading"></div>
-    <div class="recipe-list"></div>
-    <div class="recipe-details"></div>
-   </main> 
-
-   <button class="back-home" onclick="goHome()">
-    ⬅ Voltar ao início
-</button>
-
-
-<section class="featured-section">
-
-    <h2>Discover Our Recipes</h2>
-
-    <p>Find something delicious to cook today!</p>
-
-    <div id="featured-recipes" class="featured-grid">
-        <p>Loading recipes...</p>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Cozinha portuguesa, sem complicações</span>
+        <h1>Receitas que valem <em>a pena</em> cozinhar.</h1>
+        <p class="hero-lead">30 receitas originais, escritas em português de Portugal, com quantidades realistas, tempos honestos e explicações que fazem sentido à primeira leitura.</p>
+        <div class="search-panel">
+          <form class="search-form" data-search-form role="search" action="/receitas/" method="get">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <label class="sr-only" for="pesquisa">Pesquisar receitas por nome, ingrediente ou categoria</label>
+            <input id="pesquisa" data-search-input name="q" type="search" placeholder="Receita, ingrediente ou categoria…" autocomplete="off">
+            <button type="submit">Pesquisar</button>
+          </form>
+          <div class="search-hints">
+            <span>Experimente:</span>
+            <button class="hint-chip" type="button" data-hint="frango">frango</button>
+            <button class="hint-chip" type="button" data-hint="chocolate">chocolate</button>
+            <button class="hint-chip" type="button" data-hint="vegetariano">vegetariano</button>
+            <button class="hint-chip" type="button" data-hint="bacalhau">bacalhau</button>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div><strong>30</strong><span>receitas completas</span></div>
+          <div><strong>6</strong><span>categorias</span></div>
+          <div><strong>0</strong><span>receitas copiadas</span></div>
+        </div>
+      </div>
+      <a class="hero-visual" href="/receitas/panquecas-de-buttermilk-com-mel-e-nozes.html" aria-label="Ver receita em destaque: Panquecas de buttermilk com mel e nozes">
+        <img src="/images/panquecas-de-buttermilk-com-mel-e-nozes.webp" alt="Panquecas douradas empilhadas com mel e nozes picadas num prato claro" width="1200" height="800" fetchpriority="high">
+        <span class="hero-visual-tag"><span class="dot"></span> Em destaque · Panquecas de buttermilk com mel e nozes</span>
+      </a>
     </div>
+  </section>
 
-</section>
+  <section class="section section-tight" aria-labelledby="titulo-categorias">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Por onde começar</span>
+          <h2 id="titulo-categorias">Categorias</h2>
+          <p>Seis formas de organizar a semana. Cada categoria reúne receitas com o mesmo tipo de técnica e de momento.</p>
+        </div>
+        <a class="link-more" href="/categorias/">Ver todas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="category-grid">
+        
+          <a class="category-card reveal" href="/categorias/pequeno-almoco.html">
+            <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M16 10h2a2.5 2.5 0 0 1 0 5h-2M7 4c0 1-1 1.5-1 2.5M11 4c0 1-1 1.5-1 2.5"/></svg></span>
+            <h3>Pequeno-almoço</h3>
+            <span>5 receitas</span>
+          </a>
+          <a class="category-card reveal" href="/categorias/massas.html">
+            <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 11h18c0 5-4 9-9 9s-9-4-9-9Z"/><path d="M7 8c0-2 2-2 2-4M12 8c0-2 2-2 2-4M17 8c0-2 2-2 2-4"/></svg></span>
+            <h3>Massas</h3>
+            <span>5 receitas</span>
+          </a>
+          <a class="category-card reveal" href="/categorias/carne.html">
+            <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 9a6 6 0 0 1 6-6h3a8 8 0 0 1 5 14l-5 4a4 4 0 0 1-5-1l-3-4a6 6 0 0 1-1-7Z"/><circle cx="11" cy="9" r="2"/></svg></span>
+            <h3>Carne</h3>
+            <span>5 receitas</span>
+          </a>
+          <a class="category-card reveal" href="/categorias/peixe.html">
+            <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12c4-6 10-7 15-4l3-3v14l-3-3c-5 3-11 2-15-4Z"/><circle cx="8" cy="11" r="1" fill="currentColor"/></svg></span>
+            <h3>Peixe</h3>
+            <span>5 receitas</span>
+          </a>
+          <a class="category-card reveal" href="/categorias/vegetarianas.html">
+            <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 4C10 4 4 9 4 16c0 2 1 4 1 4s2-9 15-11"/><path d="M4 20c2-8 8-12 16-16"/></svg></span>
+            <h3>Vegetarianas</h3>
+            <span>5 receitas</span>
+          </a>
+          <a class="category-card reveal" href="/categorias/sobremesas.html">
+            <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20h16v-6a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v6Z"/><path d="M4 15c3 2 5-1 8 0s5 1 8 0M12 8V5M12 3v.5"/></svg></span>
+            <h3>Sobremesas</h3>
+            <span>5 receitas</span>
+          </a>
+      </div>
+    </div>
+  </section>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <section class="section" aria-labelledby="titulo-destaque">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Escolhidas pela redação</span>
+          <h2 id="titulo-destaque">Receitas em destaque</h2>
+          <p>Pratos que representam bem o tipo de cozinha que queremos aqui: claros, saborosos e possíveis numa cozinha normal.</p>
+        </div>
+        <a class="link-more" href="/receitas/">Ver todas as receitas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="recipe-grid">
+        
+<article class="recipe-card reveal" style="transition-delay:0ms">
+  <a href="/receitas/panquecas-de-buttermilk-com-mel-e-nozes.html" aria-label="Ver receita: Panquecas de buttermilk com mel e nozes">
+    <div class="recipe-card-media">
+      <img src="/images/thumbs/panquecas-de-buttermilk-com-mel-e-nozes.webp" alt="Panquecas douradas empilhadas com mel e nozes picadas num prato claro" loading="lazy" width="600" height="400">
+      <span class="recipe-badge">Pequeno-almoço</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>Panquecas de buttermilk com mel e nozes</h3>
+      <p>Panquecas altas e fofas, com o travo ligeiramente ácido do buttermilk e um toque de canela. São rápidas de fazer num domingo de manhã e ficam igualmente boas com mel, xarope de ácer ou simplesmente manteiga derretida.</p>
+      <div class="recipe-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 min</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17 14.2c2.3.6 4 2.8 4 5.8"/></svg>4 doses</span>
+        <span class="difficulty">Fácil</span>
+      </div>
+    </div>
+  </a>
+</article>
+<article class="recipe-card reveal" style="transition-delay:45ms">
+  <a href="/receitas/tostas-de-abacate-com-ovo-escalfado.html" aria-label="Ver receita: Tostas de abacate com ovo escalfado e piri-piri">
+    <div class="recipe-card-media">
+      <img src="/images/thumbs/tostas-de-abacate-com-ovo-escalfado.webp" alt="Tosta de pão escuro com abacate esmagado, ovo escalfado e piri-piri" loading="lazy" width="600" height="400">
+      <span class="recipe-badge">Pequeno-almoço</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>Tostas de abacate com ovo escalfado e piri-piri</h3>
+      <p>Pão de fermentação natural torrado, abacate esmagado com limão e um ovo escalfado de gema líquida. É um pequeno-almoço simples que depende de bons ingredientes e de um ovo bem escalfado.</p>
+      <div class="recipe-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>20 min</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17 14.2c2.3.6 4 2.8 4 5.8"/></svg>2 doses</span>
+        <span class="difficulty">Médio</span>
+      </div>
+    </div>
+  </a>
+</article>
+<article class="recipe-card reveal" style="transition-delay:90ms">
+  <a href="/receitas/esparguete-a-carbonara.html" aria-label="Ver receita: Esparguete à carbonara">
+    <div class="recipe-card-media">
+      <img src="/images/thumbs/esparguete-a-carbonara.webp" alt="Prato de esparguete à carbonara com guanciale dourado, gema e pimenta preta" loading="lazy" width="600" height="400">
+      <span class="recipe-badge">Massas</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>Esparguete à carbonara</h3>
+      <p>A verdadeira carbonara romana dispensa natas: o molho nasce da emulsão de ovos, queijo Pecorino e água da cozedura com a gordura do guanciale. É um prato de poucos ingredientes em que a temperatura é tudo.</p>
+      <div class="recipe-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 min</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17 14.2c2.3.6 4 2.8 4 5.8"/></svg>3 doses</span>
+        <span class="difficulty">Médio</span>
+      </div>
+    </div>
+  </a>
+</article>
+<article class="recipe-card reveal" style="transition-delay:135ms">
+  <a href="/receitas/lasanha-de-carne-e-bechamel.html" aria-label="Ver receita: Lasanha de carne e bechamel">
+    <div class="recipe-card-media">
+      <img src="/images/thumbs/lasanha-de-carne-e-bechamel.webp" alt="Porção de lasanha de carne com camadas visíveis e queijo gratinado" loading="lazy" width="600" height="400">
+      <span class="recipe-badge">Massas</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>Lasanha de carne e bechamel</h3>
+      <p>Camadas de massa, ragu de carne cozinhado devagar e bechamel caseiro, terminadas com queijo gratinado. É um prato para fazer com tempo e servir a muitos, e sabe ainda melhor no dia seguinte.</p>
+      <div class="recipe-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2 h 15 min</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17 14.2c2.3.6 4 2.8 4 5.8"/></svg>6 doses</span>
+        <span class="difficulty">Médio</span>
+      </div>
+    </div>
+  </a>
+</article>
+<article class="recipe-card reveal" style="transition-delay:180ms">
+  <a href="/receitas/frango-assado-com-limao-e-ervas.html" aria-label="Ver receita: Frango assado com limão e ervas">
+    <div class="recipe-card-media">
+      <img src="/images/thumbs/frango-assado-com-limao-e-ervas.webp" alt="Frango inteiro assado dourado com limão, alecrim e batatas no tabuleiro" loading="lazy" width="600" height="400">
+      <span class="recipe-badge">Carne</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>Frango assado com limão e ervas</h3>
+      <p>Um frango inteiro assado com limão, alho e ervas, com a pele bem dourada e a carne suculenta. As batatas assam no mesmo tabuleiro e absorvem os sucos, o que faz deste prato uma refeição completa.</p>
+      <div class="recipe-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>1 h 50 min</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17 14.2c2.3.6 4 2.8 4 5.8"/></svg>4 doses</span>
+        <span class="difficulty">Médio</span>
+      </div>
+    </div>
+  </a>
+</article>
+<article class="recipe-card reveal" style="transition-delay:225ms">
+  <a href="/receitas/almondegas-de-vaca-em-molho-de-tomate.html" aria-label="Ver receita: Almôndegas de vaca em molho de tomate">
+    <div class="recipe-card-media">
+      <img src="/images/thumbs/almondegas-de-vaca-em-molho-de-tomate.webp" alt="Almôndegas de carne em molho de tomate com manjericão numa panela" loading="lazy" width="600" height="400">
+      <span class="recipe-badge">Carne</span>
+    </div>
+    <div class="recipe-card-body">
+      <h3>Almôndegas de vaca em molho de tomate</h3>
+      <p>Almôndegas tenras, com pão embebido em leite e queijo, cozinhadas num molho de tomate simples. Servem-se com esparguete, puré ou pão fresco para molhar, e congelam muito bem.</p>
+      <div class="recipe-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>1 h 5 min</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17 14.2c2.3.6 4 2.8 4 5.8"/></svg>4 doses</span>
+        <span class="difficulty">Fácil</span>
+      </div>
+    </div>
+  </a>
+</article>
+      </div>
+    </div>
+  </section>
 
+  <section class="section section-alt" id="receitas" aria-labelledby="titulo-receitas">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Pesquisar e filtrar</span>
+          <h2 id="titulo-receitas">Todas as receitas</h2>
+          <p>Pesquise por nome, ingrediente ou categoria. Os resultados aparecem à medida que escreve.</p>
+        </div>
+      </div>
+      <div class="filters" data-filters role="group" aria-label="Filtrar por categoria">
+        <button class="filter-chip" type="button" data-category="todas" aria-pressed="true">Todas</button>
+        <button class="filter-chip" type="button" data-category="pequeno-almoco" aria-pressed="false">Pequeno-almoço</button><button class="filter-chip" type="button" data-category="massas" aria-pressed="false">Massas</button><button class="filter-chip" type="button" data-category="carne" aria-pressed="false">Carne</button><button class="filter-chip" type="button" data-category="peixe" aria-pressed="false">Peixe</button><button class="filter-chip" type="button" data-category="vegetarianas" aria-pressed="false">Vegetarianas</button><button class="filter-chip" type="button" data-category="sobremesas" aria-pressed="false">Sobremesas</button>
+      </div>
+      <div class="results-bar" data-results-bar hidden></div>
+      <div class="recipe-grid" data-results-grid data-limit="30">
+        <div class="skeleton" style="grid-column:1/-1"></div>
+      </div>
+      <div class="empty-state" data-empty hidden>
+        <h3>Nenhuma receita encontrada</h3>
+        <p>Tente outro ingrediente, como “frango”, “tomate” ou “chocolate”, ou escolha uma categoria diferente.</p>
+        <button type="button" data-reset>Limpar pesquisa</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="titulo-metodo">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Como trabalhamos</span>
+          <h2 id="titulo-metodo">Receitas escritas para funcionar</h2>
+          <p>Não publicamos listas de ingredientes sem contexto. Cada receita explica o que importa e onde é fácil errar.</p>
+        </div>
+      </div>
+      <div class="category-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="category-card reveal" style="padding:26px">
+          <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 13a4 4 0 0 1-1-7.9A4.5 4.5 0 0 1 12 3a4.5 4.5 0 0 1 7 2.1A4 4 0 0 1 18 13"/><path d="M6 13h12v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-6Z"/></svg></span>
+          <h3>Instruções completas</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin:8px 0 0">Cada passo indica temperaturas, tempos e sinais visuais. Sem “cozinhe até estar pronto”.</p>
+        </div>
+        <div class="category-card reveal" style="padding:26px">
+          <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 4C10 4 4 9 4 16c0 2 1 4 1 4s2-9 15-11"/><path d="M4 20c2-8 8-12 16-16"/></svg></span>
+          <h3>Ingredientes reais</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin:8px 0 0">Quantidades para doses concretas, com alternativas para quem não tem tudo em casa.</p>
+        </div>
+        <div class="category-card reveal" style="padding:26px">
+          <span class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></span>
+          <h3>Transparência</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin:8px 0 0">Indicamos alergénios, conservação e que as imagens são ilustrativas. Sem promessas falsas.</p>
+        </div>
+      </div>
+      <div style="margin-top:34px">
+        <div class="cta-band">
+          <div>
+            <h2>Porque é que este site existe</h2>
+            <p>O TheFlavorFind nasceu da vontade de reunir receitas em português de Portugal que não obriguem a comprar ingredientes impossíveis nem a adivinhar tempos. Leia os nossos princípios editoriais.</p>
+          </div>
+          <a class="btn-primary" href="/sobre.html">Conhecer o projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="TheFlavorFind — início">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="#FF6B1A"/>
+    <path d="M13 22h18a2 2 0 0 1 2 2v3a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-5Z" fill="#0A0A0A"/>
+    <path d="M33 24h3a2 2 0 0 1 0 4h-3" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M19 17c0-2 2-2 2-4M25 17c0-2 2-2 2-4" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+          <span class="brand-word"><span class="the">THE</span><span class="flavor">FLAVOR</span><span class="find">FIND</span></span>
+        </a>
+        <p>Receitas originais em português de Portugal, explicadas com detalhe e sem promessas exageradas. Cozinha real, para pessoas reais.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explorar</h3>
+        <ul>
+          <li><a href="/receitas/">Todas as receitas</a></li>
+          <li><a href="/categorias/">Categorias</a></li>
+          <li><a href="/politica-editorial.html">Como escrevemos</a></li>
+          <li><a href="/sobre.html">Sobre o projeto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Categorias</h3>
+        <ul>
+          <li><a href="/categorias/pequeno-almoco.html">Pequeno-almoço</a></li><li><a href="/categorias/massas.html">Massas</a></li><li><a href="/categorias/carne.html">Carne</a></li><li><a href="/categorias/peixe.html">Peixe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Informação</h3>
+        <ul>
+          <li><a href="/contacto.html">Contacto</a></li>
+          <li><a href="/politica-editorial.html">Política editorial</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="/termos.html">Termos de utilização</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TheFlavorFind. Todos os direitos reservados.</span>
+      <span>As imagens das receitas são ilustrativas e foram geradas por inteligência artificial.</span>
+    </div>
+  </div>
+</footer>
 </body>
-<script src="scripts.js"></script>
-
 </html>

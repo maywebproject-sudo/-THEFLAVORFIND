@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /netlify/
+Disallow: /admin.html
+Disallow: /build/
+
+Sitemap: https://theflavorfind.netlify.app/sitemap.xml

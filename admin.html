@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar receita | TheFlavorFind</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .admin-wrap { max-width: 860px; margin: 0 auto; padding: 48px 0 80px; }
+    .admin-note { background:#151515;border:1px solid #2a2a2a;border-left:3px solid var(--orange);border-radius:10px;padding:16px 18px;color:#b5b5b5;font-size:14px;margin:18px 0 30px; }
+    .field { margin-bottom: 18px; }
+    .field label { display:block;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#a8a8a8;margin-bottom:7px; }
+    .field input, .field select, .field textarea { width:100%;background:#141414;border:1px solid #2e2e2e;border-radius:10px;color:#fff;padding:11px 13px;font-size:15px; }
+    .field textarea { min-height: 110px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px; line-height: 1.55; }
+    .field small { display:block;color:#777;font-size:12.5px;margin-top:6px; }
+    .field-row { display:grid;grid-template-columns:repeat(3,1fr);gap:14px; }
+    .admin-actions { display:flex;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap; }
+    .admin-actions button { background:var(--orange);color:#0a0a0a;border:0;border-radius:999px;padding:13px 26px;font-weight:700; }
+    .admin-actions button:disabled { opacity:.6; cursor:wait; }
+    #result { margin-top:24px;font-size:14.5px;white-space:pre-wrap;border-radius:10px;padding:16px;display:none; }
+    #result.ok { display:block;background:rgba(126,203,143,.1);border:1px solid rgba(126,203,143,.4);color:#bfe8c9; }
+    #result.err { display:block;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.35);color:#ffb3b3; }
+    @media(max-width:640px){ .field-row{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="TheFlavorFind — início">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="#FF6B1A"/>
+        <path d="M13 22h18a2 2 0 0 1 2 2v3a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8v-5Z" fill="#0A0A0A"/>
+        <path d="M33 24h3a2 2 0 0 1 0 4h-3" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M19 17c0-2 2-2 2-4M25 17c0-2 2-2 2-4" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-word"><span class="the">THE</span><span class="flavor">FLAVOR</span><span class="find">FIND</span></span>
+    </a>
+    <nav class="site-nav" style="position:static;opacity:1;pointer-events:auto;flex-direction:row;background:none;border:0;padding:0">
+      <a href="/receitas/">Ver receitas</a>
+      <a href="/">Início</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap admin-wrap">
+  <span class="eyebrow">Área reservada</span>
+  <h1 style="font-family:var(--font-display);font-size:clamp(34px,5vw,52px);letter-spacing:-.03em;margin:0 0 12px">Adicionar uma receita</h1>
+  <p style="color:var(--muted);margin:0">Este formulário envia a receita diretamente para a API própria (<code>/api/recipes</code>). É necessário o token de administração configurado na Netlify.</p>
+
+  <div class="admin-note">
+    <strong>Como funciona:</strong> a receita é guardada em Netlify Blobs, aparece imediatamente na API e na pesquisa do site, mas <strong>não gera automaticamente uma página estática</strong>. Para uma página permanente e indexável, acrescente a receita a <code>data/recipes.json</code> e execute <code>node build/build.mjs &amp;&amp; node build/pages.mjs</code> antes do deploy.
+  </div>
+
+  <form id="recipe-form">
+    <div class="field">
+      <label for="token">Token de administração</label>
+      <input id="token" name="token" type="password" autocomplete="off" required placeholder="Valor de ADMIN_TOKEN">
+      <small>Não é guardado no navegador nem enviado para outro destino além da sua API.</small>
+    </div>
+
+    <div class="field">
+      <label for="name">Nome da receita</label>
+      <input id="name" name="name" required minlength="3" placeholder="Ex.: Arroz de pato tradicional">
+    </div>
+
+    <div class="field">
+      <label for="description">Descrição</label>
+      <textarea id="description" name="description" required minlength="20" style="min-height:80px;font-family:inherit;font-size:15px" placeholder="Duas ou três frases originais sobre o prato, o sabor e o contexto."></textarea>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="category">Categoria</label>
+        <select id="category" name="category" required>
+          <option value="pequeno-almoco">Pequeno-almoço</option>
+          <option value="massas">Massas</option>
+          <option value="carne">Carne</option>
+          <option value="peixe">Peixe</option>
+          <option value="vegetarianas">Vegetarianas</option>
+          <option value="sobremesas">Sobremesas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="difficulty">Dificuldade</label>
+        <select id="difficulty" name="difficulty">
+          <option>Fácil</option>
+          <option>Médio</option>
+          <option>Difícil</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="servings">Doses</label>
+        <input id="servings" name="servings" type="number" min="1" value="4" required>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label for="prepTime">Preparação (min)</label><input id="prepTime" name="prepTime" type="number" min="0" value="15" required></div>
+      <div class="field"><label for="cookTime">Confeção (min)</label><input id="cookTime" name="cookTime" type="number" min="0" value="30" required></div>
+      <div class="field"><label for="image">Imagem (URL)</label><input id="image" name="image" placeholder="/images/nome.webp"></div>
+    </div>
+
+    <div class="field">
+      <label for="ingredients">Ingredientes</label>
+      <textarea id="ingredients" name="ingredients" required placeholder="200 g | arroz carolino&#10;1 | cebola grande&#10;2 colheres de sopa | azeite"></textarea>
+      <small>Um ingrediente por linha, no formato <code>quantidade | ingrediente</code>.</small>
+    </div>
+
+    <div class="field">
+      <label for="instructions">Instruções</label>
+      <textarea id="instructions" name="instructions" required placeholder="Prepare a base | Refogue a cebola em azeite durante 6 minutos.&#10;Junte o arroz | Mexa e cozinhe 2 minutos antes de adicionar o caldo."></textarea>
+      <small>Um passo por linha, no formato <code>título | descrição</code>.</small>
+    </div>
+
+    <div class="field">
+      <label for="tips">Dicas (uma por linha)</label>
+      <textarea id="tips" name="tips"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="substitutions">Alternativas</label>
+      <textarea id="substitutions" name="substitutions" placeholder="Manteiga | Azeite ou margarina vegetal."></textarea>
+      <small>Formato <code>ingrediente | alternativa</code>, uma por linha.</small>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label for="allergens">Alergénios (separados por vírgula)</label><input id="allergens" name="allergens" placeholder="Glúten, Laticínios"></div>
+      <div class="field"><label for="keywords">Palavras-chave</label><input id="keywords" name="keywords" placeholder="arroz, forno, tradicional"></div>
+      <div class="field"><label for="storage">Conservação</label><input id="storage" name="storage" placeholder="Até 3 dias no frigorífico."></div>
+    </div>
+
+    <div class="field">
+      <label for="allergenNote">Nota sobre alergénios</label>
+      <input id="allergenNote" name="allergenNote" placeholder="Contém trigo e leite. Verifique sempre os rótulos.">
+    </div>
+
+    <div class="admin-actions">
+      <button type="submit" id="submit-btn">Publicar na API</button>
+      <span id="status" style="color:var(--muted-2);font-size:13px"></span>
+    </div>
+    <div id="result" role="status" aria-live="polite"></div>
+  </form>
+</main>
+<script>
+const form = document.getElementById("recipe-form");
+const result = document.getElementById("result");
+const statusEl = document.getElementById("status");
+const btn = document.getElementById("submit-btn");
+
+const lines = (v) => v.split("\n").map(l => l.trim()).filter(Boolean);
+const pairs = (v, a, b) => lines(v).map(l => {
+  const i = l.indexOf("|");
+  if (i === -1) return { [a]: l, [b]: "" };
+  return { [a]: l.slice(0, i).trim(), [b]: l.slice(i + 1).trim() };
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  result.className = ""; result.textContent = "";
+  btn.disabled = true; statusEl.textContent = "A enviar…";
+
+  const data = new FormData(form);
+  const payload = {
+    name: data.get("name").trim(),
+    description: data.get("description").trim(),
+    category: data.get("category"),
+    difficulty: data.get("difficulty"),
+    servings: Number(data.get("servings")),
+    servingsLabel: data.get("servings") + " doses",
+    prepTime: Number(data.get("prepTime")),
+    cookTime: Number(data.get("cookTime")),
+    image: data.get("image") || "/images/placeholder-receita.svg",
+    imageAlt: "Fotografia ilustrativa de " + data.get("name").trim(),
+    ingredients: pairs(data.get("ingredients"), "quantity", "item"),
+    instructions: pairs(data.get("instructions"), "title", "text"),
+    tips: lines(data.get("tips")),
+    substitutions: pairs(data.get("substitutions"), "for", "alternative"),
+    allergens: data.get("allergens").split(",").map(s => s.trim()).filter(Boolean),
+    keywords: data.get("keywords").split(",").map(s => s.trim()).filter(Boolean),
+    storage: data.get("storage") || "Consumir em 2 a 3 dias, guardado no frigorífico.",
+    allergenNote: data.get("allergenNote") || "Verifique sempre os rótulos dos ingredientes utilizados."
+  };
+
+  try {
+    const res = await fetch("/api/recipes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Admin-Token": data.get("token") },
+      body: JSON.stringify(payload)
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error + (body.details ? "\n" + body.details.join("\n") : ""));
+    result.className = "ok";
+    result.textContent = "Receita criada com sucesso.\nSlug: " + body.recipe.slug + "\nJá está disponível em /api/recipes/" + body.recipe.slug;
+    form.reset();
+    statusEl.textContent = "";
+  } catch (err) {
+    result.className = "err";
+    result.textContent = "Erro: " + err.message;
+    statusEl.textContent = "";
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "theflavorfind",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TheFlavorFind — receitas originais em português de Portugal, com API própria em Netlify Functions.",
+  "scripts": {
+    "build": "node build/build.mjs && node build/pages.mjs",
+    "dev": "npx netlify dev",
+    "preview": "python3 -m http.server 4173"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
